@@ -23,6 +23,8 @@ namespace Hakimov41
         public ProductPage()
         {
             InitializeComponent();
+            var currentProduct = Hakimov41Entities.GetContext().Product.ToList();
+            ProductListView.ItemsSource = currentProduct;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
