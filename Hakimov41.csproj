@@ -160,16 +160,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HakimovModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HakimovModel.Context.cs</LastGenOutput>
-      <DependentUpon>HakimovModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="HakimovModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HakimovModel.edmx</DependentUpon>
-      <LastGenOutput>HakimovModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="res\B320R5.jpg" />
     <Resource Include="res\D329H3.jpg" />
     <Resource Include="res\D572U8.jpg" />
@@ -188,6 +178,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HakimovModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HakimovModel.edmx</DependentUpon>
+      <LastGenOutput>HakimovModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HakimovModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HakimovModel.edmx</DependentUpon>
+      <LastGenOutput>HakimovModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

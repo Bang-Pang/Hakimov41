@@ -13,18 +13,17 @@ namespace Hakimov41
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Hakimov41Entities : DbContext
+    public partial class Hakimov41Entities1 : DbContext
     {
-        private static Hakimov41Entities _context;
-        public static Hakimov41Entities GetContext()
+        private static Hakimov41Entities1 _context;
+        public static Hakimov41Entities1 GetContext()
         {
             if (_context == null)
-                _context = new Hakimov41Entities();
-
+                _context = new Hakimov41Entities1();
             return _context;
         }
-        public Hakimov41Entities()
-            : base("name=Hakimov41Entities")
+        public Hakimov41Entities1()
+            : base("name=Hakimov41Entities1")
         {
         }
     

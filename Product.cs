@@ -35,9 +35,11 @@ namespace Hakimov41
         public string ProductStatus { get; set; }
         public string MainImagePath { get
             {
-                if (string.IsNullOrEmpty(ProductPhoto)) return null;
+                if (String.IsNullOrEmpty(ProductPhoto)) return null;
                 return "res/" + ProductPhoto;
-            } }
+            } 
+        }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
     }
