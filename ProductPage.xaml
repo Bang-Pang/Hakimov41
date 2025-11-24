@@ -25,13 +25,16 @@
                     <TextBlock>все</TextBlock>
                     <TextBlock>от 0 до 9,99% </TextBlock>
                     <TextBlock>от 10 до 14,99% </TextBlock>
-                    <TextBlock>от 15 до 49,99% </TextBlock>
-                    <TextBlock>от 50 до 70% </TextBlock>
-                    <TextBlock>от 70 до 100% </TextBlock>
-                    
+                    <TextBlock>от 15 до 100%</TextBlock>
+
                 </ComboBox>
             </StackPanel>
         </WrapPanel>
+        <TextBlock Name="CountTextBlock"
+           Grid.Row="0"
+           HorizontalAlignment="Right"
+           FontSize="18"
+           Margin="10"/>
         <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5">
             <RadioButton Content="По возрастанию стоимости" GroupName="Sort" Width="300" FontSize="20" Checked="RButtonUp_Checked" Name="RButtonUp"></RadioButton>
             <RadioButton Content="По убыванию стоимости" GroupName="Sort" Width="300" FontSize="20" Name="RButtonDown" Checked="RButtonDown_Checked"></RadioButton>
