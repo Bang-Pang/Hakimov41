@@ -20,13 +20,28 @@ namespace Hakimov41
     /// </summary>
     public partial class ProductPage : Page
     {
-        public ProductPage()
+        public ProductPage(User user)
         {
             InitializeComponent();
+            if (user != null)
+            {
+                FioTB.Text = $"{user.UserSurname} {user.UserName} {user.UserPatronymic}";
+                switch (user.UserRole)
+                {
+                    case 1: RoleTB.Text = "Клиент"; break;
+                    case 2: RoleTB.Text = "Менеджер"; break;
+                    case 3: RoleTB.Text = "Администратор"; break;
+                }
+            }
+            else
+            {
+                FioTB.Text = "Гость";
+                RoleTB.Text = "Гость";
+            }
             var currentProduct = Hakimov41Entities1.GetContext().Product.ToList();
             ProductListView.ItemsSource = currentProduct;
-            ComboType.SelectedIndex = 0;
-            UpdateProduct();
+            //ComboType.SelectedIndex = 0;
+            //UpdateProduct();
         }
 
         private void UpdateProduct()

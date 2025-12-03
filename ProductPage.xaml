@@ -10,36 +10,88 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel Margin="10" Orientation="Horizontal">
-                <TextBlock Text="Введите название для поиска" TextAlignment="Right" Width="300" FontSize="20"></TextBlock>
-                <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Width="300" FontSize="15"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="Выберите название для поиска" TextAlignment="Right" Width="300" FontSize="20"></TextBlock>
-                <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" FontSize="15" Width="200">
-                    <TextBlock>все</TextBlock>
-                    <TextBlock>от 0 до 9,99% </TextBlock>
-                    <TextBlock>от 10 до 14,99% </TextBlock>
-                    <TextBlock>от 15 до 100%</TextBlock>
 
+        <Grid Grid.Row="0" Margin="0,5,0,5">
+            <TextBlock Name="CountTextBlock"
+                   HorizontalAlignment="Left"
+                   FontSize="18"
+                   Margin="10"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Вы авторизованы как:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+                    <TextBlock Name="FioTB"
+                       VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                    <TextBlock Text="Роль:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,5,0"/>
+                    <TextBlock Name="RoleTB"
+                       VerticalAlignment="Center"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <WrapPanel Grid.Row="1"
+               Orientation="Horizontal"
+               HorizontalAlignment="Center"
+               Margin="0,5,0,5">
+            <StackPanel Margin="10" Orientation="Horizontal">
+                <TextBlock Text="Введите название для поиска"
+                       TextAlignment="Right"
+                       Width="300"
+                       FontSize="20"/>
+                <TextBox Name="TBoxSearch"
+                     TextChanged="TBoxSearch_TextChanged"
+                     Width="300"
+                     FontSize="15"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Выберите название для поиска"
+                       TextAlignment="Right"
+                       Width="300"
+                       FontSize="20"/>
+                <ComboBox Name="ComboType"
+                      SelectionChanged="ComboType_SelectionChanged"
+                      FontSize="15"
+                      Width="200">
+                    <TextBlock>все</TextBlock>
+                    <TextBlock>от 0 до 9,99%</TextBlock>
+                    <TextBlock>от 10 до 14,99%</TextBlock>
+                    <TextBlock>от 15 до 100%</TextBlock>
                 </ComboBox>
             </StackPanel>
         </WrapPanel>
-        <TextBlock Name="CountTextBlock"
-           Grid.Row="0"
-           HorizontalAlignment="Right"
-           FontSize="18"
-           Margin="10"/>
-        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5">
-            <RadioButton Content="По возрастанию стоимости" GroupName="Sort" Width="300" FontSize="20" Checked="RButtonUp_Checked" Name="RButtonUp"></RadioButton>
-            <RadioButton Content="По убыванию стоимости" GroupName="Sort" Width="300" FontSize="20" Name="RButtonDown" Checked="RButtonDown_Checked"></RadioButton>
+
+        <StackPanel Grid.Row="2"
+                Orientation="Horizontal"
+                Margin="10,0,0,5">
+            <RadioButton Content="По возрастанию стоимости"
+                     GroupName="Sort"
+                     Width="300"
+                     FontSize="20"
+                     Name="RButtonUp"
+                     Checked="RButtonUp_Checked"/>
+            <RadioButton Content="По убыванию стоимости"
+                     GroupName="Sort"
+                     Width="300"
+                     FontSize="20"
+                     Name="RButtonDown"
+                     Margin="20,0,0,0"
+                     Checked="RButtonDown_Checked"/>
         </StackPanel>
-        <ListView Name="ProductListView" Grid.Row="2">
+
+        <ListView Name="ProductListView" Grid.Row="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
