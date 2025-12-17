@@ -20,10 +20,14 @@ namespace Hakimov41
     /// </summary>
     public partial class ProductPage : Page
     {
+        private User _currentUser;
+        private List<Product> _selectedProducts = new List<Product>();
+        private List<OrderProduct> _selectedOrderProducts = new List<OrderProduct>();
         public ProductPage(User user)
         {
             InitializeComponent();
-            if (user != null)
+            _currentUser = user;
+            if (_currentUser != null)
             {
                 FioTB.Text = $"{user.UserSurname} {user.UserName} {user.UserPatronymic}";
                 switch (user.UserRole)
@@ -111,5 +115,54 @@ namespace Hakimov41
         {
             UpdateProduct();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var product = ProductListView.SelectedItem as Product;
+            if (product == null)
+            {
+                MessageBox.Show("Выберите товар.");
+                return;
+            }
+
+            var existing = _selectedOrderProducts
+                .FirstOrDefault(op => op.ProductArticleNumber == product.ProductArticleNumber);
+
+            if (existing != null)
+            {
+                existing.OrderProductCount += 1;
+            }
+            else
+            {
+                var op = new OrderProduct
+                {
+                    ProductArticleNumber = product.ProductArticleNumber,
+                    OrderProductCount = 1,
+                    Product = product
+                };
+
+                _selectedOrderProducts.Add(op);
+                _selectedProducts.Add(product);
+            }
+
+            if (_selectedOrderProducts.Count > 0)
+                OrderButton.Visibility = Visibility.Visible;
+        }
+
+        private void OrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new OrderWindow(_selectedProducts, _currentUser);
+            win.Owner = Application.Current.MainWindow;
+
+            bool? result = win.ShowDialog();   // один вызов
+
+            if (result == true || _selectedProducts.Count == 0)
+            {
+                _selectedProducts = new List<Product>();
+                _selectedOrderProducts = new List<OrderProduct>();   // если используешь
+                OrderButton.Visibility = Visibility.Collapsed;
+            }
+        }
+
     }
 }

@@ -20,10 +20,19 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Логин" VerticalAlignment="Center" Margin="0, 0, 10, 5"/>
-        <TextBox Name="LoginTextBox" Grid.Row="0" Grid.Column="1" Margin="0, 0, 0, 5"/>
-        
+        <TextBox Name="LoginTextBox" Grid.Row="0" Grid.Column="1" Margin="0,30,0,26" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.289"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.71"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Пароль" VerticalAlignment="Center" Margin="0, 0, 10, 5"/>
-        <TextBox Name="PasswordTextBox" Grid.Row="1" Grid.Column="1" Margin="0, 0, 0, 5"/>
+        <TextBox Name="PasswordTextBox" Grid.Row="1" Grid.Column="1" Margin="0,21,0,33"/>
 
         <Button Grid.Row="2" Grid.Column="0" Content="Войти как гость" Margin="0, 10, 10, 0" Click="GuestButton_Click"/>
         <Button x:Name="LoginButton" Grid.Row="2" Grid.Column="1" Content="Войти" Margin="10, 10, 0, 0" Click="LoginButton_Click"/>

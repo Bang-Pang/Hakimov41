@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductPage">
 
-    <Grid>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -90,8 +90,22 @@
                      Margin="20,0,0,0"
                      Checked="RButtonDown_Checked"/>
         </StackPanel>
+        <Button x:Name="OrderButton"
+            Grid.Row="2"
+            HorizontalAlignment="Right"
+            Margin="0,0,20,5"
+            Width="150"
+            Height="30"
+            Visibility="Collapsed"
+            Content="Просмотр заказа"
+            Click="OrderButton_Click"/>
 
-        <ListView Name="ProductListView" Grid.Row="3">
+        <ListView Name="ProductListView" Grid.Row="3" Grid.ColumnSpan="4">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить к заказу " Click="MenuItem_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
